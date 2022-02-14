@@ -4,35 +4,51 @@ const path = require("path");
 const isLocal = typeof process.pkg === "undefined";
 const basePath = isLocal ? process.cwd() : path.dirname(process.execPath);
 const { MODE } = require(path.join(basePath, "src/blendMode.js"));
-const description =
-  "Your project description";
+const description = "TEST";
 const baseUri = "ipfs://NewUriToReplace";
+const itemName = "TEST";
+const symbol = "SYM";
 
 const layerConfigurations = [
-  {
-    growEditionSizeTo: 9,
-    layersOrder: [
-      { name: "Background" },
-      { name: "Ball" },
-    ],
-  },
+	{
+		growEditionSizeTo: 1,
+		layersOrder: [{ name: "Background" } /* , { name: "Character" }, { name: "Equipment" } */],
+	},
 ];
 
 const shuffleLayerConfigurations = false;
 
 const debugLogs = false;
-
+// 640 * 640 per file
+// The Length of the file will be 640 * n frame
+/* const format = {
+	width: 5120,
+	height: 640,
+}; */
 const format = {
-  width: 2560,
-  height: 640,
+	width: 24318,
+	height: 386,
 };
-
 const background = {
-  generate: true,
-  brightness: "80%",
+	generate: true,
+	brightness: "80%",
 };
 
-const extraMetadata = {};
+const extraMetadata = {
+	seller_fee_basis_points: 0,
+	symbol: "TESTSYM",
+	collection: {
+		name: "Solflare X NFT",
+		family: "Solflare",
+	},
+	creators: [
+		{
+			address: "SOLFLR15asd9d21325bsadythp547912501b",
+			share: 100,
+		},
+	],
+	external_url: "https://solflare.com",
+};
 
 const rarityDelimiter = "#";
 
@@ -47,15 +63,16 @@ const uniqueDnaTorrance = 10000;
 // };
 
 module.exports = {
-  format,
-  baseUri,
-  description,
-  background,
-  uniqueDnaTorrance,
-  layerConfigurations,
-  rarityDelimiter,
-  //preview,
-  shuffleLayerConfigurations,
-  debugLogs,
-  extraMetadata,
+	itemName,
+	format,
+	baseUri,
+	description,
+	background,
+	uniqueDnaTorrance,
+	layerConfigurations,
+	rarityDelimiter,
+	//preview,
+	shuffleLayerConfigurations,
+	debugLogs,
+	extraMetadata,
 };
